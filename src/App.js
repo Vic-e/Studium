@@ -1,22 +1,16 @@
 import logo from './logo.svg';
-import './App.css';
-import React, { Component} from 'react';
+import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './components/Home'
+import React, { Component} from 'react'
 
 function App() {
   return (
     <div className="App">
-      <header className="">
-      Studium
-      Sign-in
-      Register
-      </header>
-      <div>
-      </div>
-      <footer>
-      &Copyright 2022
-      Privacy
-      Terms & Conditions
-      </footer>
+      <Header/>
+      <Home/>
+      <Footer/>
     </div>
   );
 }
