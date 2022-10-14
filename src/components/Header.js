@@ -1,16 +1,16 @@
 import React, { Component} from 'react'
+import Sidebar from './Sidebar'
+import SignIn from './SignIn'
 
 function Header() {
   return (
     <div>
-      <header className="">
-      <nav className="flex-container">
+      <header>
+      <nav>
+        <Sidebar/>
           Studium
-          <input type="search" value="search" />
-          <ul>
-              <li>Sign-in</li>
-              <li>Register</li>
-          </ul>
+          <input type="search" value="Search" />
+        <SignIn/>
       </nav>
       </header>
     </div>

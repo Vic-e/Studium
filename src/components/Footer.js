@@ -6,6 +6,10 @@ function Footer() {
     &Copright 2022
     Privacy
     Terms & Conditions
+    Twitter
+    Facebook
+    Instagram
+    YouTube
     </div>
   );
 }
