@@ -1,14 +1,17 @@
 import React, { Component} from 'react'
+import {Nav} from 'react-bootstrap';
 
 function SignIn() {
   return (
     <div>
-          <ul>
-              <li>
-              Sign-in
-              </li>
-              <li>Register</li>
-          </ul>
+          <Nav>
+              <Nav.Item>
+                <Nav.Link>Sign-in</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>Register</Nav.Link>
+              </Nav.Item>
+          </Nav>
     </div>
   );
 }

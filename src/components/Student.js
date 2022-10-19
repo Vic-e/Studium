@@ -3,7 +3,7 @@ import Video from './Video'
 import Recommended from './Recommended'
 
 
-function Home() {
+function Student() {
   return (
     <main>
     <Video/>
@@ -12,4 +12,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Student;

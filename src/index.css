@@ -38,3 +38,11 @@ nav{
   display: flex;
   justify-content: space-between;
 }
+
+offcanvas{
+  background-color: #000000 !important;
+}
+
+.vBody{
+  text-align: left;
+}
