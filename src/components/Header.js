@@ -1,7 +1,9 @@
 import React, { Component} from 'react'
 import Sidebar from './Sidebar'
 import SignIn from './SignIn'
-import {Row, Col, Container} from 'react-bootstrap';
+import {Row, Col, Container} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import Search from './Search'
 
 function Header() {
   return (
@@ -13,10 +15,12 @@ function Header() {
               <Sidebar/>
             </Col>
             <Col>
+              <Link to="/">
                 <h3>Studium</h3>
+              </Link>
               </Col>
             <Col xs lg="4">
-              <input type="search" value="Search" />
+              <Search />
             </Col>
             <Col md="auto">
               <SignIn/>

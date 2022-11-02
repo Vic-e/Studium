@@ -1,17 +1,18 @@
-import React, { Component} from 'react'
-import {Row, Col, Stack, Accordion} from 'react-bootstrap';
-import NextCourse from './NextCourse'
+import React, { Component, useState, useEffect} from 'react'
+import { Row, Col, Stack, Accordion} from 'react-bootstrap';
+import NextCourse from './NextCourse';
 
-function Video() {
+function SingleCourse() {
   return (
     <div>
-    <h2 style={{textAlign:"left"}}>Course Name</h2>
-    <Row>
-      <Col>
+      <h2 style={{textAlign:"left"}}>Course Name</h2>
+        <Row>
+        <Col>
+
           <video width="800" height="500" controls>
-              <source src="" type="video/mp4"/>
+            <source src="" type="video/mp4"/>
           </video>
-          <h3 style={{textAlign:"left"}}>Name of Video</h3>
+              <h3 style={{textAlign:"left"}}>Video Title</h3>
       </Col>
       <Col>
         <NextCourse/>
@@ -44,8 +45,8 @@ function Video() {
         </Accordion.Item>
         </Accordion>
       </Stack>
-    </div>
+      </div>
   );
 }
 
-export default Video;
+export default SingleCourse;

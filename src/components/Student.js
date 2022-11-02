@@ -1,12 +1,12 @@
-import React, { Component} from 'react'
-import Video from './Video'
+import React from 'react'
+import SingleCourse from './SingleCourse'
 import Recommended from './Recommended'
 
 
 function Student() {
   return (
     <main>
-    <Video/>
+    <SingleCourse/>
     <Recommended/>
     </main>
   );

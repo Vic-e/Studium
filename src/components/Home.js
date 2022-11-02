@@ -1,15 +1,14 @@
-import React, { Component} from 'react'
-import Video from './Video'
-import Recommended from './Recommended'
+import React from 'react'
 import Featured from './Featured'
 import CategoryCards from './CategoryCards'
+import {Image} from 'react-bootstrap';
 
 function Home() {
   return (
     <main>
-    <Video/>
+    <Image src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png"/> 
+      <h1>Curated Courses Crafted for Creators</h1>
     <Featured/>
-    <Recommended/>
     <CategoryCards/>
     </main>
   );
