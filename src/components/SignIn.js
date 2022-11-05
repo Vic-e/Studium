@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Nav} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 
 function SignIn() {
+
   return (
     <div>
           <Nav>
@@ -15,8 +16,6 @@ function SignIn() {
                  </Link>
                </Nav.Link>
                </Nav.Item> 
-           
-           
               <Nav.Item>
               <Nav.Link>
                 <Link to="register">

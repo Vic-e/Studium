@@ -1,6 +1,6 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
-
+import {Link} from 'react-router-dom'
 
 function RegForm() {
   return (
@@ -26,10 +26,14 @@ function RegForm() {
                 </Form.Group>      
            </fieldset> 
            <Button type="submit">   
-                Submit
+                Register
             </Button>   
         </Form>
-        <h2>Already a member Signin here</h2>
+        <h2>Already a member Sign-in{" "} 
+        <Link to="/login">
+                 here
+                 </Link>.
+        </h2>
     </div>
   );
 }

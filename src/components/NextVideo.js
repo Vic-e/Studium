@@ -1,11 +1,11 @@
-import React, { Component} from 'react'
+import React from 'react'
 import {Row, Col, Stack} from 'react-bootstrap';
 
-function NextCourse() {
+function NextVideo() {
   return (
           <Stack className="vBody" gap={4}>
               <div>
-                <h4>Name of NextCourse</h4>
+                <h4>Name of NextVideo</h4>
               <ul>
               <li>Now Watching</li>
               <li>Length</li>
@@ -15,4 +15,4 @@ function NextCourse() {
   );
 }
 
-export default NextCourse;
+export default NextVideo;

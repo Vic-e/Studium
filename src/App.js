@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import Student from './components/Student'
 import Dashboard from './components/Dashboard'
+import Courses from './components/Courses'
 import SingleCourse from './components/SingleCourse'
 import SignInForm from './components/SignInForm'
 import RegForm from './components/RegForm'
@@ -23,6 +24,7 @@ function App() {
         <Route path="register" element={<RegForm />}/>
         <Route path="member" element={<Student />}/>
         <Route path="dashboard" element={<Dashboard />}/>
+        <Route path="courses" element={<Courses />}/>
         <Route path="course" element={<SingleCourse />}/>
         <Route path="*" element={<Error />}/>
       </Routes>

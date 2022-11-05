@@ -1,6 +1,6 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
-
+import {Link} from 'react-router-dom'
 
 function SignInForm() {
   return (
@@ -17,11 +17,14 @@ function SignInForm() {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Button type="submit">   
-                Submit
+                Sign-In
                 </Button>      
            </fieldset>   
         </Form>
-        <h2>Register here</h2>
+        <h2>Need an account? Register{" "}<Link to="/register">
+                 here
+                 </Link>.
+        </h2>
     </div>
   );
 }

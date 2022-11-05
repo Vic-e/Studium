@@ -1,23 +1,13 @@
-import React from 'react'
-import {Form, Accordion, Button} from 'react-bootstrap'
+import React, {useState} from 'react'
+import {Accordion} from 'react-bootstrap'
 import AddVideo from './AddVideo'
+import AddCourse from './AddCourse'
 
 function Dashboard() {
   return (
     <>
-        <h2>Admin Dashboard</h2> 
-        <Form>
-            <fieldset>
-            <h3>Create a Course</h3>
-                <Form.Group>
-                    <Form.Label>Course Name</Form.Label>
-                    <Form.Control type="text" />
-                </Form.Group>
-                <Button type="submit">   
-                Submit
-                </Button>      
-           </fieldset>   
-        </Form>   
+        <h2>Admin Dashboard</h2>  
+        <AddCourse />
         <AddVideo />
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
