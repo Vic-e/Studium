@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function RegForm() {
   return (
-    <div>
+    <main>
         <h2>Register</h2>
         <Form>
             <fieldset>
@@ -34,7 +34,7 @@ function RegForm() {
                  here
                  </Link>.
         </h2>
-    </div>
+    </main>
   );
 }
 

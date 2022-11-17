@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function SignInForm() {
   return (
-    <div>
+    <main>
         <h2>Sign-In</h2>
         <Form>
             <fieldset>
@@ -25,7 +25,7 @@ function SignInForm() {
                  here
                  </Link>.
         </h2>
-    </div>
+    </main>
   );
 }
 

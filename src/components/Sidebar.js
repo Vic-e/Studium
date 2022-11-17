@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Nav, Offcanvas, Button} from 'react-bootstrap';
+import {Outlet, Link} from 'react-router-dom'
 
 function Sidebar() {
   const [show, setShow] = useState(false);
@@ -19,10 +20,31 @@ function Sidebar() {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column">
-            <Nav.Link>Business</Nav.Link>
-            <Nav.Link>Gaming</Nav.Link>
-            <Nav.Link>Film</Nav.Link>
-            <Nav.Link>Web 3</Nav.Link>
+            <Nav.Link>
+            <Link to="business">
+              Business
+            </Link>
+              </Nav.Link>
+            <Nav.Link>
+            <Link to="gaming">
+              Gaming
+            </Link>
+            </Nav.Link>
+            <Nav.Link>
+            <Link to="film">
+              Film
+            </Link>
+            </Nav.Link>
+            <Nav.Link>
+            <Link to="web3">
+            Web 3
+            </Link>
+            </Nav.Link>
+            <Nav.Link>
+            <Link to="webmonetization">
+            Web Monetization
+            </Link>
+            </Nav.Link>
           </Nav>
         </Offcanvas.Body>
         </Offcanvas>

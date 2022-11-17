@@ -1,37 +1,60 @@
-import React, {useState} from 'react'
-import {Accordion} from 'react-bootstrap'
+import React, {useState, useEffect, useContext} from 'react'
+import {CourseContext} from '../App'
+import {Accordion, Row, Col} from 'react-bootstrap'
 import AddVideo from './AddVideo'
 import AddCourse from './AddCourse'
+import {db} from './firebase';
+import {query, doc, collection, onSnapshot, deleteDoc} from 'firebase/firestore'
+import {Link} from 'react-router-dom'
 
-function Dashboard() {
+
+const Dashboard = (course) => {
+  const {courses, setCourses} = useContext(CourseContext);
+
+  //delete a course
+  const deleteCourse = async(id) => {
+    await deleteDoc(doc(db, 'courses', id))
+  }
+
   return (
-    <>
+    <main>
         <h2>Admin Dashboard</h2>  
         <AddCourse />
         <AddVideo />
-          <Accordion defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Update Course</Accordion.Header>
-              <Accordion.Body>
+        <Row>
+            <Col>
+            <Accordion defaultActiveKey="0">
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Update Course</Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                  {courses.map((course) =>(
+                      <li>{course.courseName}
+                      <Link to={`${course.id}/edit`}>Edit</Link> |
+                      <Link onClick={() => deleteCourse(course.id)}> Delete</Link> 
+                      </li>
+                  ))}
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              </Accordion>
+              </Col>
+              <Col>
+              <Accordion>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Update Video</Accordion.Header>
+                <Accordion.Body>
                 <ul>
-                    <li>Course Name | Delete</li>
-                    <li>Course Name | Delete</li>
-                    <li>Course Name | Delete</li>
-                </ul>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Update Video</Accordion.Header>
-              <Accordion.Body>
-              <ul>
-                <li>Video Name | Delete</li>
-                <li>Video Name | Delete</li>
-                <li>Video Name | Delete</li>
-                </ul>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </>
+                  <li>Video Name | Delete</li>
+                  <li>Video Name | Delete</li>
+                  <li>Video Name | Delete</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Col>
+          </Row>
+        </main>
      );
  }
 
