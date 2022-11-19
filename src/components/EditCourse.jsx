@@ -7,32 +7,55 @@ import {updateDoc, doc, getDoc} from 'firebase/firestore'
 
 
 const EditCourse = () => {
-  const {courses, setCourses} = useContext(CourseContext);
+  
 
   const {id} = useParams()
-  console.log('this', id, courses)
-  // const [courseName, setCourseName] = useState('');
-  // const [courseImage, setCourseImage] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [courseDescription, setCourseDescription] = useState('');
  
+  const [courseName, setCourseName] = useState('');
+  const [courseImage, setCourseImage] = useState('');
+  const [category, setCategory] = useState('');
+  const [courseDescription, setCourseDescription] = useState('');
+
+  const getData = async () => {
+  const docRef = doc(db, 'courses', id)
+  try {
+    const docSnap = await getDoc(docRef);
+    console.log(docSnap.data());
+    if(docSnap.exists()) {
+      setCourseName(docSnap.data().courseName)
+      setCourseImage(docSnap.data().courseImage)
+      setCourseDescription(docSnap.data().courseDescription)
+      setCategory(docSnap.data().category)
+    }else {
+      console.log("Document does not exist")
+    }
+  }catch(error) {
+      console.log(error)
+    }
+  }
+
+    useEffect (() =>{
+      getData()
+    },[]);
+  
+  console.log('this', id, {courseName})
 
   function handleUpdate(e){
-    e.preventDefault();
+    e.preventDefault()
 
-    const courseRef = doc(db, 'courses', id)
-    const course = x(['courses', id], courseRef)
-    updateDoc(courseRef,{
-      courseName: courseName, 
-      courseImage: courseImage,
-      courseDescription: courseDescription,
-      category: category
+    const docRef = doc(db, 'courses', id)
+    updateDoc(docRef,{
+      courseName,
+      courseImage,
+      courseDescription,
+      category
     }).then(response =>{
       alert("updated")
-    }).catch(error =>{
+    }).catch(error =>
       console.log(error.message)
-    })
+    )
   }
+
 
   return (
         <main>
@@ -42,6 +65,7 @@ const EditCourse = () => {
                               <Form.Group>
                                   <Form.Label>Course Name</Form.Label>
                                   <Form.Control
+                                  controlId="courseName"
                                   type="text"
                                   value={courseName}
                                   onChange={(e) => setCourseName(e.target.value)}
@@ -50,15 +74,16 @@ const EditCourse = () => {
                               <Form.Group>
                                     <Form.Label>Course Thumbnail</Form.Label>
                                     <Form.Control
+                                    controlId="courseImage"
                                     type="text"
-                                  value={courseImage}
-                                  onChange={(e) => setCourseImage(e.target.value)}
+                                    value={courseImage}
+                                    onChange={(e) => setCourseImage(e.target.value)}
                                           />
                               </Form.Group>
                               <Form.Group>
                                     <Form.Label>Course Description</Form.Label>
                                     <Form.Control 
-                                    type="text"
+                                    controlId="courseDescription"
                                     as="textarea" 
                                     rows={4} 
                                     value={courseDescription}
@@ -67,7 +92,9 @@ const EditCourse = () => {
                               </Form.Group>
                               <Form.Group>
                                     <Form.Label>Category</Form.Label>
-                                    <Form.Control type="text"
+                                    <Form.Control
+                                    type="text"
+                                    controlId="category"
                                     value={category}
                                     onChange={(e) => setCategory(e.target.value)}
                                           />

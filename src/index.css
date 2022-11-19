@@ -25,6 +25,7 @@ code {
 main{
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 header{
@@ -32,6 +33,12 @@ header{
   margin: 0 auto;
   display: flex;
   padding: 20px;
+}
+
+footer{
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 nav{

@@ -3,24 +3,26 @@ import { Row, Col} from 'react-bootstrap';
 
 function Footer() {
   return (
-    <div>
+    <footer>
      <Row>
       <Col>
-        &Copright 2022
+       <h5> &copy;Copyright 2022</h5>
       </Col>
       <Col>
-        Privacy
-        Terms & Conditions
+       <h5> Privacy</h5>
+      <h5>Terms & Conditions</h5>
       </Col>
       <Col>
-        Social
-        Twitter
-        Facebook
-        Instagram
-        YouTube
+        <h5>Social</h5>
+        <ul>
+        <li>Twitter</li>
+        <li>Facebook</li>
+        <li>Instagram</li>
+        <li>YouTube</li>
+        </ul>
       </Col>
       </Row>
-    </div>
+    </footer>
   );
 }
 
