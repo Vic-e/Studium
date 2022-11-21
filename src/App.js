@@ -2,8 +2,9 @@ import logo from './logo.svg';
 import React, {createContext, useEffect, useState}  from 'react'
 import './App.css'
 import {Route, Routes} from 'react-router-dom'
-import {db} from './components/firebase';
+import { db } from './components/firebase';
 import {query, collection, onSnapshot} from 'firebase/firestore'
+import { AuthContextProvider } from './context/AuthContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
@@ -16,7 +17,9 @@ import RegForm from './components/RegForm'
 import Error from './components/Error'
 import EditCourse from './components/EditCourse'
 
+
 export const CourseContext = createContext();
+
 
 function App() {
   //get courses
@@ -34,30 +37,33 @@ function App() {
   return () => unsubscribe();
 }, []);
 
+
   return (
     <>
-      <Header/>
-      <CourseContext.Provider value={{courses:courses,
-       setCourses:courses => setCourses(courses),
-      }}>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="login" element={<SignInForm />}/>
-          <Route path="register" element={<RegForm />}/>
-          <Route path="member" element={<Student />}/>
-            <Route path="dashboard" element={<Dashboard />}/>
-            <Route path="dashboard/:id/edit" element={<EditCourse />}/>
-            <Route path="courses/:id" element={<SingleCourse />}/>
-            <Route path="courses" element={<Courses />}>
-                <Route path="business" element={<Courses />}/>
-                <Route path="gaming" element={<Courses />}/>
-                <Route path="film" element={<Courses />}/>
-                <Route path="web3" element={<Courses />}/>
-                <Route path="webmonetization" element={<Courses />}/>
-            </Route>
-          <Route path="*" element={<Error />}/>
-       </Routes>
-      </CourseContext.Provider>
+      <AuthContextProvider>
+        <Header/>
+        <CourseContext.Provider value={{courses:courses,
+        setCourses:courses => setCourses(courses),
+        }}>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="login" element={<SignInForm />}/>
+            <Route path="register" element={<RegForm />}/>
+            <Route path="member" element={<Student />}/>
+              <Route path="dashboard" element={<Dashboard />}/>
+              <Route path="dashboard/:id/edit" element={<EditCourse />}/>
+              <Route path="courses/:id" element={<SingleCourse />}/>
+              <Route path="courses" element={<Courses />}>
+                  <Route path="business" element={<Courses />}/>
+                  <Route path="gaming" element={<Courses />}/>
+                  <Route path="film" element={<Courses />}/>
+                  <Route path="web3" element={<Courses />}/>
+                  <Route path="webmonetization" element={<Courses />}/>
+              </Route>
+            <Route path="*" element={<Error />}/>
+        </Routes>
+        </CourseContext.Provider>
+      </AuthContextProvider>
       <Footer/>
     </>
   );

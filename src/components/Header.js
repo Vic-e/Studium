@@ -1,4 +1,4 @@
-import React, { Component} from 'react'
+import React from 'react'
 import Sidebar from './Sidebar'
 import SignIn from './SignIn'
 import {Row, Col, Container} from 'react-bootstrap'

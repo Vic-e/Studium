@@ -50,19 +50,19 @@ function AddCourse() {
                      />
                 </Form.Group>
                 <Form.Group>
-                            <Form.Label>Course Thumbnail</Form.Label>
-                            <Form.Control
-                             type="text"
+                    <Form.Label>Course Thumbnail</Form.Label>
+                    <Form.Control
+                     type="text"
                      value={courseImage}
                      onChange={(e) => setCourseImage(e.target.value)
                     }
                              />
                 </Form.Group>
                 <Form.Group>
-                            <Form.Label>Course Description</Form.Label>
-                            <Form.Control 
-                            type="text"
-                            value={courseDescription}
+                    <Form.Label>Course Description</Form.Label>
+                    <Form.Control 
+                    type="text"
+                    value={courseDescription}
                      onChange={(e) => setCourseDescription(e.target.value)
                     }
                             />

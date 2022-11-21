@@ -10,7 +10,7 @@ function LoggedIn() {
           <Nav>
                <Nav.Item>
                <Nav.Link>
-                <Link to="login">
+                <Link to="member">
                  Username
                  </Link>
                </Nav.Link>

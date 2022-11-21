@@ -1,30 +1,60 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import {Form, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext';
 
-function SignInForm() {
+const SignInForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const {user, logIn} = UserAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState('')
+
+
+  const handleSubmit = async (e) => {
+        e.preventDefault()
+        try{
+            await logIn(email, password);
+            navigate('/')
+            setError('')
+        } catch(error){
+            setError(error.message)
+        }
+  }
+    
   return (
     <main>
         <h2>Sign-In</h2>
-        <Form>
+        {error ? <p>Your email or password are inccorect.</p> : null}
+        <Form onSubmit={handleSubmit}>
             <fieldset>
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Email" />
+                    <Form.Control 
+                    controlId="email"
+                    type="email" 
+                    placeholder="Email" 
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
                 </Form.Group>
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                    controlId="password"
+                     type="password"
+                     placeholder="Password" 
+                     onChange={(e) => setPassword(e.target.value)}
+                     />
                 </Form.Group>
                 <Button type="submit">   
                 Sign-In
                 </Button>      
            </fieldset>   
         </Form>
-        <h2>Need an account? Register{" "}<Link to="/register">
+        <h4>Need an account? Register{" "}<Link to="/register">
                  here
                  </Link>.
-        </h2>
+        </h4>
     </main>
   );
 }

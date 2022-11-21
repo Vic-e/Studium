@@ -52,7 +52,7 @@ const EditCourse = () => {
     }).then(response =>{
       alert("updated")
     }).catch(error =>
-      console.log(error.message)
+      console.log("you have and issue")
     )
   }
 
