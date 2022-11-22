@@ -2,7 +2,7 @@ import React from 'react'
 import {Image, Card, Button} from 'react-bootstrap';
 
 
-function Recommended() {
+const Recommended = () => {
   return (
 <div>
     <h2 style={{textAlign:"left"}}>Recommended</h2>

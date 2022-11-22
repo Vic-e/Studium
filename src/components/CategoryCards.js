@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import {Image, Card, Button} from 'react-bootstrap';
 
 
-function CategoryCards() {
+const  CategoryCards = () => {
   return (
       <div>
         <h2 style={{textAlign:"left"}}>Categories</h2>

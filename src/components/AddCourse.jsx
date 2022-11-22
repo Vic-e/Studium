@@ -61,7 +61,7 @@ function AddCourse() {
                 <Form.Group>
                     <Form.Label>Course Description</Form.Label>
                     <Form.Control 
-                    type="text"
+                    type="textarea"
                     value={courseDescription}
                      onChange={(e) => setCourseDescription(e.target.value)
                     }

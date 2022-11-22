@@ -3,12 +3,12 @@ import {Form, Button} from 'react-bootstrap'
 import {Link, useNavigate} from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext';
 import {db, auth} from './firebase';
-import {doc, setDoc} from 'firebase/firestore'  
+import {doc, setDoc} from 'firebase/firestore';  
 
 
+const RegForm = () => {
 
-function RegForm() {
-
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {user, signUp} = UserAuth();
@@ -18,7 +18,7 @@ function RegForm() {
   const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            await signUp(email, password);
+            await signUp(email, password, username)
             navigate('/')
             setError('')
         } catch(error){
@@ -27,32 +27,20 @@ function RegForm() {
   }
 
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault(e);
-//     const auth = getAuth();
-//     await createUserWithEmailAndPassword(auth, email, password)
-//         .then(async (userCredential) => {
-//             console.log(userCredential)
-//             const user = userCredential.user;
-//             const ref = doc(db, 'courses', userCredential.user.uid);
-//             const docRef = await setDoc(ref, {name})
-//             .then((re) => {
-//                 alert("data added successfully")
-//             })
-//         })
-//         .catch((error) => {
-//             alert("something went wrong retry")
-//         });
-
-
-//     }
-
   return (
     <main>
         <h2>Register</h2>
         {error ? <p>{error}</p> : null}
         <Form onSubmit={handleSubmit}>
             <fieldset>
+            <Form.Group>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control 
+                    controlId="username"
+                    type="username"
+                     placeholder="Username"
+                     onChange={(e) => setUsername(e.target.value)} />
+                </Form.Group>
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control 

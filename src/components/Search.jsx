@@ -2,7 +2,7 @@ import React from 'react'
 import { useSearchParams } from "react-router-dom";
 
 
-function Search() {
+const Search = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     //function handleSubmit(event) {

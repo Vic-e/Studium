@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import {Row, Col, Card} from 'react-bootstrap';
 
-function MyCourses() {
+const MyCourses = () => {
   return (
     <div>
           <Row>

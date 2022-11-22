@@ -3,7 +3,7 @@ import {Form, Button} from 'react-bootstrap'
 import {db} from './firebase'
 import {collection, addDoc} from 'firebase/firestore'              
            
-function AddVideo() {
+const AddVideo = () => {
     const [instructor, setInstructor] = useState('');
     const [thumbnailImage, setThumbailImage] = useState('');
     const [title, setTitle] = useState('');

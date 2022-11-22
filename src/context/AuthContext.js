@@ -1,23 +1,30 @@
-import React, {createContext, useContext, useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
-import { auth } from '../components/firebase';
+import React, {createContext, useContext, useEffect, useState} from 'react';
+import { auth, db } from '../components/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from 'firebase/auth'
-import {doc, setDoc} from 'firebase/firestore'     
+import {doc, setDoc, Timestamp} from 'firebase/firestore' 
+
 
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }){
     const [user, setUser] = useState({})
 
-    function signUp(email, password){
-        return createUserWithEmailAndPassword(auth, email, password);
+    const signUp = (email, password, username) => {
+        createUserWithEmailAndPassword(auth, email, password)
+        setDoc(doc(db, 'users', email), {
+        username: username,
+        profilePic: (""), 
+        userType: ("") ,   
+        myCourses: [],
+        dateCreated: Timestamp.fromDate(new Date())
+         }) 
     }
 
-    function logIn(email, password){
+    const logIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    function logOut(email, password){
+    const logOut = (email, password) => {
         return signOut(auth)
     }
     

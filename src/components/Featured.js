@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Button, Image} from 'react-bootstrap';
 
-function Featured() {
+const Featured = () => {
     return (
         <div>
           <h2 style={{textAlign:"left"}}>Featured</h2>

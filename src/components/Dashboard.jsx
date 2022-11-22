@@ -8,7 +8,7 @@ import {query, doc, collection, onSnapshot, deleteDoc} from 'firebase/firestore'
 import {Link} from 'react-router-dom'
 
 
-const Dashboard = (course) => {
+const Dashboard = () => {
   const {courses, setCourses} = useContext(CourseContext);
 
   //delete a course
@@ -23,7 +23,7 @@ const Dashboard = (course) => {
         <AddVideo />
         <Row>
             <Col>
-            <Accordion defaultActiveKey="0">
+            <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Update Course</Accordion.Header>
                 <Accordion.Body>
@@ -45,7 +45,10 @@ const Dashboard = (course) => {
                 <Accordion.Header>Update Video</Accordion.Header>
                 <Accordion.Body>
                 <ul>
-                  <li>Video Name | Delete</li>
+                  <li>Video Name
+                    <Link to={{}}> Edit </Link> |
+                    <Link to={{}}> Delete</Link>
+                  </li>
                   <li>Video Name | Delete</li>
                   <li>Video Name | Delete</li>
                   </ul>

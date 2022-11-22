@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Nav, Offcanvas, Button} from 'react-bootstrap';
 import {Outlet, Link} from 'react-router-dom'
 
-function Sidebar() {
+const Sidebar = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

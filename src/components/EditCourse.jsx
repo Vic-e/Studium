@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {CourseContext} from '../App'
-import {useLocation, useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
 import {db} from './firebase'
 import {updateDoc, doc, getDoc} from 'firebase/firestore'
