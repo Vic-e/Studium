@@ -1,59 +1,37 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {CourseContext} from '../App'
-import { Row, Col, Image} from 'react-bootstrap';
-import { BsPatchPlus, BsFillPatchPlusFill } from "react-icons/bs";
-import {Link, Outlet} from 'react-router-dom';
+import { Row, Col, Badge} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import {UserAuth} from '../context/AuthContext';  
 import {db} from './firebase';
-import {query, collection, onSnapshot, arrayUnion, doc, updateDoc} from 'firebase/firestore'
+import OneCourse from './OneCourse'
 
 
 const Courses = () => {
-    const {courses, setCourses} = useContext(CourseContext);
+  const {courses, setCourses} = useContext(CourseContext);
 
-    const [choose, setChoose] = useState(false);
-    const [fave, setFave] = useState(false);
-    const { user } = UserAuth();
-
-
-    // const courseList = courses.map((course) =>
-    // )
-
-    const userFaveCourses = doc(db, 'users', `${user.email}`)
-    let xxx = `${courses.id}`
-    const faveCourse = async () => {
-      if(user.email) {
-        setChoose(!choose)
-        setFave(true)
-        await updateDoc(userFaveCourses, {
-          myCourses: arrayUnion,
-          xxx: xxx
-        })
-      } else {
-        alert('you must be loggedin to save courses to your watchlist.')
-      }
-    }
+  const xxx = () =>{
+    
+  }
 
 return (
     <main>
     <h2>Courses</h2>
+    <Row>
+      <Col>
+     <h3> <Badge>All Courses</Badge></h3>
+     <h3> <Badge>Business</Badge></h3>
+     <h3> <Badge>Gaming</Badge></h3>
+     <h3> <Badge>Film</Badge></h3>
+      </Col>
+    </Row>
       <Row>
-        {courses.map((course) =>(
-        <Col>
-        <h4 style={{color: '#ffffff'}} onClick={fave}>
-        {choose ? (
-          <BsFillPatchPlusFill/>
-          ):(
-            <BsPatchPlus/>
-          )}
-          </h4 >
-        <Image style={{width: '300px'}} src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png" />
-        <h3><Link to={`${course.id}`}>{course.courseName}</Link></h3>
-        <p>{course.courseDescription}</p>
-        </Col>
+        {courses.map((course, id) =>(
+          <Col>
+            <OneCourse key={id} course={course} />
+          </Col>
         ))}
-     </Row>
-    <Outlet />
+        </Row>
     </main>
    );
 };

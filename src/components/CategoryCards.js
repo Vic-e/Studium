@@ -1,22 +1,30 @@
-import React, { Component} from 'react'
-import {Image, Card, Button} from 'react-bootstrap';
+import React from 'react'
+import { Link } from 'react-router-dom';
+import {Image, Col, Row, Button} from 'react-bootstrap';
 
 
-const  CategoryCards = () => {
+const CategoryCards = () => {
   return (
       <div>
-        <h2 style={{textAlign:"left"}}>Categories</h2>
-        <Card style={{ width: '18rem' }}>
-           <Card.Img variant="top" src="https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_Hong_Kong_2022_Lead_Image_2-2-1.jpg" />
-           <Card.Body>
-             <Card.Title>Topic</Card.Title>
-             <Card.Text>
-               Some quick example text to build on the card title and make up the
-               bulk of the card's content.
-             </Card.Text>
-             <Button variant="primary">Go somewhere</Button>
-           </Card.Body>
-         </Card>
+        <h2 className="mt-5" style={{textAlign:"left"}}>Categories</h2>
+        <Row className="mt-4">
+          <Col xs={3}>
+            <Image style={{ width: '18rem' }} src="https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_Hong_Kong_2022_Lead_Image_2-2-1.jpg" />
+             <Link><h4 className="mt-3">Business</h4></Link>
+           </Col>
+           <Col xs={3}>
+            <Image style={{ width: '18rem' }} src="https://tp7869.a2cdn1.secureserver.net/wp-content/uploads/2022/02/gaming-controller-1024x1024.jpg" />
+             <Link><h4 className="mt-3">Gaming</h4></Link>
+           </Col>
+           <Col xs={3}>
+            <Image style={{ width: '18rem' }} src="https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_Hong_Kong_2022_Lead_Image_2-2-1.jpg" />
+              <Link><h4 className="mt-3">Film</h4></Link>
+           </Col>
+           <Col xs={3}>
+            <Image style={{ width: '18rem' }} src="https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_Hong_Kong_2022_Lead_Image_2-2-1.jpg" />
+             <h4 className="mt-3"><Link>Web 3</Link></h4> 
+           </Col>
+         </Row>
       </div>
     );
   }

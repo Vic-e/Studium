@@ -103,7 +103,7 @@ const AddVideo = () => {
                             }
                             />
                         </Form.Group>
-                        <Form.Select aria-label="Default select example">
+                        <Form.Select aria-label="select a course">
                           <option>Choose a Course</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>

@@ -46,10 +46,31 @@ nav{
   justify-content: space-between;
 }
 
-offcanvas{
-  background-color: #000000 !important;
-}
-
 .vBody{
   text-align: left;
+}
+
+Button{
+  background-color: #A68863 !important;
+  border-style: none !important;
+}
+
+a{
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.accordion-button {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  padding-left: 0px;
+}
+
+.accordion-button:focus {
+  outline: 0 !important;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
 }

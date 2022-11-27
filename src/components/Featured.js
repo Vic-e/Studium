@@ -4,8 +4,8 @@ import { Row, Col, Button, Image} from 'react-bootstrap';
 const Featured = () => {
     return (
         <div>
-          <h2 style={{textAlign:"left"}}>Featured</h2>
-          <Row>
+          <h2 className="mt-5" style={{textAlign:"left"}}>Featured</h2>
+          <Row className="mt-4">
               <Col sm={4}>
               <Image width={400} src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png" />
               </Col>

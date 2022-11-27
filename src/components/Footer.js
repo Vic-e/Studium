@@ -1,12 +1,16 @@
-import React, { Component} from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col} from 'react-bootstrap';
+import { BsTwitter, BsFacebook, BsInstagram, BsYoutube} from "react-icons/bs";
 
 const Footer = () => {
   return (
     <footer>
      <Row>
       <Col>
-        <h4>Studium</h4>
+      <Link to="/">
+                <h4>Studium Digital</h4>
+      </Link>
        <h5> &copy;Copyright 2022</h5>
       </Col>
       <Col>
@@ -17,13 +21,13 @@ const Footer = () => {
       </Col>
       <Col>
         <h5>Connect</h5>
-        <ul>
-        <li>Black Web Fest</li>
-        <li>Twitter</li>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>YouTube</li>
-        </ul>
+        <h6>Black Web Fest</h6>
+        <Row>
+        <Col xs={3}><a href="https://mobile.twitter.com/blackwebfest"><BsTwitter/></a></Col>
+        <Col xs={3}><a href="https://www.facebook.com/BlackWebFest/"><BsFacebook/></a></Col>
+        <Col xs={3}><a href="https://www.instagram.com/blackwebfest/"><BsInstagram/></a></Col>
+        <Col xs={3}><a href="https://www.youtube.com/channel/UCmofYkvrUe3GABIFyZwitdA"><BsYoutube/></a></Col>
+        </Row>
       </Col>
       </Row>
     </footer>

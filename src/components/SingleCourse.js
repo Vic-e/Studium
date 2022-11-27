@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext} from 'react'
 import {db} from './firebase'
 import {useParams, Link} from 'react-router-dom'
-import { Row, Col} from 'react-bootstrap';
+import { Row, Col} from 'react-bootstrap'
 import {doc, getDoc} from 'firebase/firestore'
 import Recommended from './Recommended'
-import NextVideo from './NextVideo';
+import NextVideo from './NextVideo'
 
 const SingleCourse = () => {
 
@@ -41,16 +41,18 @@ const SingleCourse = () => {
 
   return (
    <main>
-      <Row>
+      <Row className="mt-5">
         <Col>
         <h2 style={{textAlign:"left"}}>{courseName}</h2>
+   
         </Col>
         <Col>
-       <Link to="/courses/{category}"> <h6 style={{textAlign:"right"}}>Category[{category}]</h6></Link>
+        {/* I wanted the category to link to the other content but havent figured out the function to change it yet and populate. */}
+        <h5 style={{textAlign:"right", color: '#A68863'}}>[ {category} ]</h5>
         </Col>
+        <p> {courseDescription}</p>
       </Row>
-      <h4>Course Description:</h4>
-        <p>{courseDescription}</p>
+    
         <NextVideo/>
       {/* if user is loggedin they see recommended based on category */}
       <Recommended/>

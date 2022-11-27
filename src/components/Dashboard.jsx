@@ -17,7 +17,7 @@ const Dashboard = () => {
   }
 
   return (
-    <main>
+    <main className="mt-5">
         <h2>Admin Dashboard</h2>  
         <AddCourse />
         <AddVideo />
