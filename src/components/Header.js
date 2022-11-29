@@ -16,7 +16,7 @@ const Header = () => {
             </Col>
             <Col>
               <Link to="/">
-                <h3>Studium Digital</h3>
+                <h2>Studium Digital</h2>
               </Link>
               </Col>
             {/* <Col xs lg="4">

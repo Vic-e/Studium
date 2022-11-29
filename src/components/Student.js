@@ -4,6 +4,7 @@ import { Row, Col, Image} from 'react-bootstrap';
 import {db} from './firebase';
 import { UserAuth } from '../context/AuthContext';
 import {doc, getDoc} from 'firebase/firestore'
+import {Link} from 'react-router-dom'
 
 
 const Student = () => {
@@ -45,6 +46,7 @@ const Student = () => {
         <h4 className="mt-3">{thisUser.username}</h4>
         <h6>Plan Type: {thisUser.userType}</h6>
         <h6>Member Since: {date}</h6>
+        <h6><Link to="/dashboard">Dashboard</Link></h6>
         {/* <h6>Delete Account</h6> */}
         </div>
       </Col>

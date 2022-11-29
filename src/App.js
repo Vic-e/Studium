@@ -17,6 +17,7 @@ import RegForm from './components/RegForm'
 import Error from './components/Error'
 import EditCourse from './components/EditCourse'
 import EditVideo from './components/EditVideo'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 export const CourseContext = createContext();
@@ -50,18 +51,18 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="login" element={<SignInForm />}/>
             <Route path="register" element={<RegForm />}/>
-            <Route path="member" element={<Student />}/>
-              <Route path="dashboard" element={<Dashboard />}/>
-              <Route path="dashboard/course/:id/edit" element={<EditCourse />}/>
-              <Route path="dashboard/video/:id/edit" element={<EditVideo />}/>
-              <Route path="courses/:id" element={<SingleCourse />}/>
-              <Route path="courses" element={<Courses />}>
-                  <Route path="business" element={<Courses />}/>
-                  <Route path="gaming" element={<Courses />}/>
-                  <Route path="film" element={<Courses />}/>
-                  <Route path="web3" element={<Courses />}/>
-                  <Route path="webmonetization" element={<Courses />}/>
-              </Route>
+              <Route path="member" element={<ProtectedRoute><Student /></ProtectedRoute>}/>
+              <Route path="dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
+                <Route path="dashboard/course/:id/edit" element={<ProtectedRoute><EditCourse /></ProtectedRoute>}/>
+                <Route path="dashboard/video/:id/edit" element={<ProtectedRoute><EditVideo /></ProtectedRoute>}/>
+                <Route path="courses/:id" element={<ProtectedRoute><SingleCourse /></ProtectedRoute>}/>
+                <Route path="courses" element={<ProtectedRoute><Courses /></ProtectedRoute>}>
+                    <Route path="business" element={<ProtectedRoute><Courses /></ProtectedRoute>}/>
+                    <Route path="gaming" element={<ProtectedRoute><Courses /></ProtectedRoute>}/>
+                    <Route path="film" element={<ProtectedRoute><Courses /></ProtectedRoute>}/>
+                    <Route path="web3" element={<ProtectedRoute><Courses /></ProtectedRoute>}/>
+                    <Route path="webmonetization" element={<ProtectedRoute><Courses /></ProtectedRoute>}/>
+                </Route>
             <Route path="*" element={<Error />}/>
         </Routes>
         </CourseContext.Provider>
