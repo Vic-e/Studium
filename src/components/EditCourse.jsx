@@ -58,12 +58,12 @@ const EditCourse = () => {
 
 
   return (
-        <main>
+        <main className="mt-5">
                       <Form onSubmit={handleUpdate}>
                           <fieldset>
                           <h3>Edit Course</h3>
                               <Form.Group>
-                                  <Form.Label>Course Name</Form.Label>
+                                  <Form.Label className="mt-3">Course Name</Form.Label>
                                   <Form.Control
                                   controlId="courseName"
                                   type="text"
@@ -72,7 +72,7 @@ const EditCourse = () => {
                                   />
                               </Form.Group>
                               <Form.Group>
-                                    <Form.Label>Course Thumbnail</Form.Label>
+                                    <Form.Label className="mt-3">Course Thumbnail</Form.Label>
                                     <Form.Control
                                     controlId="courseImage"
                                     type="text"
@@ -81,7 +81,7 @@ const EditCourse = () => {
                                           />
                               </Form.Group>
                               <Form.Group>
-                                    <Form.Label>Course Description</Form.Label>
+                                    <Form.Label className="mt-3">Course Description</Form.Label>
                                     <Form.Control 
                                     controlId="courseDescription"
                                     as="textarea" 
@@ -91,7 +91,7 @@ const EditCourse = () => {
                                           />
                               </Form.Group>
                               <Form.Group>
-                                    <Form.Label>Category</Form.Label>
+                                    <Form.Label className="mt-3">Category</Form.Label>
                                     <Form.Control
                                     type="text"
                                     controlId="category"
@@ -99,9 +99,9 @@ const EditCourse = () => {
                                     onChange={(e) => setCategory(e.target.value)}
                                           />
                               </Form.Group>                            
-                              <Button type="submit">   
-                                      Submit
-                              </Button>      
+                              <Button variant="dark" style={{width:"20%", color:"#A68863"}} className="mt-5" type="submit">   
+                    Submit
+                </Button>    
                               </fieldset>   
                         </Form>  
          </main>

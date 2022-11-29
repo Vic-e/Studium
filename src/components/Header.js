@@ -8,10 +8,10 @@ import Search from './Search'
 const Header = () => {
   return (
     <div>
-      <header>
+    <header>
       <Container>
-        <Row className="p-0">
-          <Col xs lg="1" className="p-0">
+        <Row className="p-0 mr-0">
+          <Col xs lg="1" className="p-0 mr-0">
               <Sidebar/>
             </Col>
             <Col>
@@ -19,9 +19,9 @@ const Header = () => {
                 <h3>Studium Digital</h3>
               </Link>
               </Col>
-            <Col xs lg="4">
+            {/* <Col xs lg="4">
               <Search />
-            </Col>
+            </Col> */}
             <Col md="auto">
               <SignIn/>
             </Col>

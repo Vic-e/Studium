@@ -3,6 +3,7 @@ import {CourseContext} from '../App'
 import {Accordion, Row, Col} from 'react-bootstrap'
 import AddVideo from './AddVideo'
 import AddCourse from './AddCourse'
+import VidDashboard from './VidDashboard'
 import {db} from './firebase';
 import {query, doc, collection, onSnapshot, deleteDoc} from 'firebase/firestore'
 import {Link} from 'react-router-dom'
@@ -21,16 +22,16 @@ const Dashboard = () => {
         <h2>Admin Dashboard</h2>  
         <AddCourse />
         <AddVideo />
-        <Row>
+        <Row className="mt-5">
             <Col>
             <Accordion>
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Update Course</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Header><h4>Update Course</h4></Accordion.Header>
+                <Accordion.Body style={{backgroundColor: '#0F0C0E', color: '#ffffff'}}>
                   <ul>
                   {courses.map((course) =>(
-                      <li>{course.courseName}
-                      <Link to={`${course.id}/edit`}>Edit</Link> |
+                      <li>{course.courseName} {"  "} 
+                      <Link to={`course/${course.id}/edit`}>Edit</Link> |
                       <Link onClick={() => deleteCourse(course.id)}> Delete</Link> 
                       </li>
                   ))}
@@ -40,21 +41,7 @@ const Dashboard = () => {
               </Accordion>
               </Col>
               <Col>
-              <Accordion>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>Update Video</Accordion.Header>
-                <Accordion.Body>
-                <ul>
-                  <li>Video Name
-                    <Link to={{}}> Edit </Link> |
-                    <Link to={{}}> Delete</Link>
-                  </li>
-                  <li>Video Name | Delete</li>
-                  <li>Video Name | Delete</li>
-                  </ul>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+             <VidDashboard/>
           </Col>
           </Row>
         </main>

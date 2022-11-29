@@ -39,9 +39,9 @@ function AddCourse() {
             <>
             <Form onSubmit={handleSubmit}>
             <fieldset>
-            <h3>Create a Course</h3>
+            <h4 className="mt-3">Create a Course</h4>
                 <Form.Group>
-                    <Form.Label>Course Name</Form.Label>
+                    <Form.Label className="mt-3">Course Name</Form.Label>
                     <Form.Control
                      type="text"
                      value={courseName}
@@ -50,7 +50,7 @@ function AddCourse() {
                      />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Course Thumbnail</Form.Label>
+                    <Form.Label className="mt-3">Course Thumbnail</Form.Label>
                     <Form.Control
                      type="text"
                      value={courseImage}
@@ -59,25 +59,25 @@ function AddCourse() {
                              />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Course Description</Form.Label>
+                    <Form.Label className="mt-3">Course Description</Form.Label>
                     <Form.Control 
-                    type="textarea"
+                     as="textarea" rows={3} 
                     value={courseDescription}
                      onChange={(e) => setCourseDescription(e.target.value)
                     }
                             />
                 </Form.Group>
                 <Form.Group>
-                            <Form.Label>Category</Form.Label>
+                       <Form.Label className="mt-3">Category</Form.Label>
                             <Form.Control type="text"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)
                            }
-                            />
+                            />     
                 </Form.Group>                            
-                <Button type="submit">   
-                        Submit
-                </Button>      
+                <Button variant="dark" style={{width:"20%", color:"#A68863"}} className="mt-5" type="submit">   
+                    Submit
+                </Button>     
                 </fieldset>   
                 </Form>   
              </>

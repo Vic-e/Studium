@@ -21,7 +21,6 @@ const Footer = () => {
       </Col>
       <Col>
         <h5>Connect</h5>
-        <h6>Black Web Fest</h6>
         <Row>
         <Col xs={3}><a href="https://mobile.twitter.com/blackwebfest"><BsTwitter/></a></Col>
         <Col xs={3}><a href="https://www.facebook.com/BlackWebFest/"><BsFacebook/></a></Col>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Nav} from 'react-bootstrap'
+import {Nav, Button} from 'react-bootstrap'
 import {Link, useNavigate} from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext';
 
@@ -18,17 +18,17 @@ const SignIn = () => {
 
   return (
     <div>
-          <Nav>
+          <Nav className="navDesign">
               {user?
               <>
                <Nav.Item>
                 <Nav.Link> 
-                <Link to="member">Account</Link>
+                <Link to="member"><h5>Account</h5></Link>
                 </Nav.Link>
                </Nav.Item> 
                <Nav.Item>
                 <Nav.Link>
-                 <Link onClick={handleLogout}>Logout</Link>  
+                 <Link onClick={handleLogout}><h5>Logout</h5></Link>  
                 </Nav.Link>
                </Nav.Item>
               </>
@@ -36,12 +36,12 @@ const SignIn = () => {
               <>
                 <Nav.Item>
                 <Nav.Link> 
-                 <Link to="login">Sign-in</Link>
+                 <Link to="login"><Button className="border-0">Sign-In</Button></Link>
                 </Nav.Link>
                 </Nav.Item> 
                <Nav.Item>
                <Nav.Link>
-                 <Link to="register">Register</Link>
+                 <Link to="register"><Button>Register</Button></Link>
                  </Nav.Link>
                </Nav.Item>
               </>

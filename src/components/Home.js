@@ -1,19 +1,23 @@
 import React from 'react'
 import Featured from './Featured'
 import CategoryCards from './CategoryCards'
+import {Link} from 'react-router-dom'
 import {Image, Button} from 'react-bootstrap';
 
 const Home = () => {
   return (
     <>  
-    <section style={{ backgroundImage: `url("https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png")`,  
+    <section className="mt-5" 
+    style={{ backgroundImage: `url("https://res.cloudinary.com/black-web-fest/image/upload/v1669656709/Studium/studium-student-learning-online_kehpud.jpg")`,  
     backgroundRepeat: 'no-repeat',
-    minHeight: '400px',
     backgroundSize: 'cover',
+    height: '900px'
     }}> 
-    <main><h1>Curated Courses Crafted for Creators</h1>
-    <Button>Join Now</Button>
-    </main>
+    <div className="heroBox">
+      <p style={{ color: "#000000", fontSize: "50px", lineHeight: "20px"}}>Curated Courses</p>
+      <p style={{ color: "#000000", fontSize: "50px"}}> Crafted for Creators</p>
+      <Link to="login"><Button size="lg">Sign-up</Button></Link>
+    </div>
     </section>
      
     <main> 

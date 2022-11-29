@@ -16,6 +16,7 @@ import SignInForm from './components/SignInForm'
 import RegForm from './components/RegForm'
 import Error from './components/Error'
 import EditCourse from './components/EditCourse'
+import EditVideo from './components/EditVideo'
 
 
 export const CourseContext = createContext();
@@ -51,7 +52,8 @@ function App() {
             <Route path="register" element={<RegForm />}/>
             <Route path="member" element={<Student />}/>
               <Route path="dashboard" element={<Dashboard />}/>
-              <Route path="dashboard/:id/edit" element={<EditCourse />}/>
+              <Route path="dashboard/course/:id/edit" element={<EditCourse />}/>
+              <Route path="dashboard/video/:id/edit" element={<EditVideo />}/>
               <Route path="courses/:id" element={<SingleCourse />}/>
               <Route path="courses" element={<Courses />}>
                   <Route path="business" element={<Courses />}/>

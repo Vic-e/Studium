@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { BsPatchPlus, BsFillPatchPlusFill } from "react-icons/bs";
 import { Row, Col, Image} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import {Link, Outlet} from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
-import { db } from './firebase';
+import { db } from '../firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 const OneCourse = ({ course }) => {
   const [choose, setChoose] = useState(false);
-  const [watchlist, setWatchlist] = useState(false);
+  const [faved, setFaved] = useState(false);
   const { user } = UserAuth();
 
-  const userFaveCourses = doc(db, 'users', `${user.email}`);
+  const userFaveCourses = doc(db, 'users', `${user?.email}`);
 
-  const pickCourse = async () => {
-    if (user.email) {
+  const faveCourse = async () => {
+    if (user?.email) {
       setChoose(!choose);
-      setWatchlist(true);
+      setFaved(true);
       await updateDoc(userFaveCourses, {
-        myCourses : arrayUnion({
+        faveCourse : arrayUnion({
             id: course.id,
             image : course.courseImage,
             name: course.courseName,
@@ -32,16 +32,20 @@ const OneCourse = ({ course }) => {
 
   return (
     <>
-            <h4 style={{color: '#ffffff'}} onClick={pickCourse}>
+        <Row>
+            <Col>
+            <Image style={{width: '300px'}} src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png" />
+            <h3><Link to={`${course.id}`}>{course.courseName}</Link></h3>
+            <p>{course.courseDescription}</p>
+            <h4 style={{color: '#ffffff'}} onClick={faveCourse}>
             {choose ? (
             <BsFillPatchPlusFill/>
             ):(
                 <BsPatchPlus/>
             )}
             </h4>
-            <Image style={{width: '300px'}} src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png" />
-            <h3><Link to={`${course.id}`}>{course.courseName}</Link></h3>
-            <p>{course.courseDescription}</p>
+            </Col>
+        </Row>
     </>
   );
 };

@@ -19,7 +19,7 @@ const SingleCourse = () => {
   const docRef = doc(db, 'courses', id)
   try {
     const docSnap = await getDoc(docRef);
-    console.log(docSnap.data());
+    //console.log(docSnap.data());
     if(docSnap.exists()) {
       setCourseName(docSnap.data().courseName)
       setCourseImage(docSnap.data().courseImage)
@@ -55,7 +55,7 @@ const SingleCourse = () => {
     
         <NextVideo/>
       {/* if user is loggedin they see recommended based on category */}
-      <Recommended/>
+      {/* <Recommended/> */}
   </main>
   );
 }

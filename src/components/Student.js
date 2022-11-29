@@ -37,18 +37,22 @@ const Student = () => {
 
 
   return (
-    <main>
+    <main className="mt-5">
     <Row>
-      <Col xs={6} md={4}>
-        <Image style={{ width:'200px' }} src={thisUser.profilePic} rounded/>
-        <h4>{thisUser.username}</h4>
-        <h5>Plan Type: {thisUser.userType}</h5>
-        <h5>Member Since: {date}</h5>
-        <h6>Delete Account</h6>
+      <Col style={{ width:'300px', background: '#0F0C0E'}}  xs={6} md={4}>
+      <Image className="mx-auto d-block mt-5" style={{ width:'200px'}} src={thisUser.profilePic} rounded/>
+        <div className="mx-auto" style={{ width:'250px' }}>
+        <h4 className="mt-3">{thisUser.username}</h4>
+        <h6>Plan Type: {thisUser.userType}</h6>
+        <h6>Member Since: {date}</h6>
+        {/* <h6>Delete Account</h6> */}
+        </div>
       </Col>
       <Col>
+        <div style={{ marginLeft: '50px'}} >
         <h2>Watchlist</h2>
         <MyCourses/>
+        </div>
       </Col>
     </Row>
     </main>

@@ -23,38 +23,36 @@ const SignInForm = () => {
   }
     
   return (
-    <main>
-        <h2>Sign-In</h2>
+    <main className="mt-5" style={{width:"400px"}}>
+        <h3>Sign-In</h3>
         {error ? <p>Your email or password are inccorect.</p> : null}
-        <Form onSubmit={handleSubmit}>
+        <Form className="mt-3 mb-3" onSubmit={handleSubmit}>
             <fieldset>
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control 
                     controlId="email"
                     type="email" 
-                    placeholder="Email" 
                     onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="mt-3">Password</Form.Label>
                     <Form.Control
                     controlId="password"
                      type="password"
-                     placeholder="Password" 
                      onChange={(e) => setPassword(e.target.value)}
                      />
                 </Form.Group>
-                <Button type="submit">   
+                <Button variant="dark" style={{width:"100%", color:"#A68863"}} className="mt-4" type="submit">   
                 Sign-In
                 </Button>      
            </fieldset>   
         </Form>
-        <h4>Need an account? Register{" "}<Link to="/register">
+        <h6>Need an account? {" "}<Link style={{ fontWeight:"bold", color:"#A68863"}} to="/register">Register
                  here
                  </Link>.
-        </h4>
+        </h6>
     </main>
   );
 }

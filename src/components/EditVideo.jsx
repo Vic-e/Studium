@@ -1,57 +1,77 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { useParams } from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
 import {db} from './firebase'
-import {collection, addDoc} from 'firebase/firestore'              
-           
-const AddVideo = () => {
-    const [instructor, setInstructor] = useState('');
-    const [thumbnailImage, setThumbailImage] = useState('');
-    const [title, setTitle] = useState('');
-    const [transcript, setTranscript] = useState('');
-    const [videoDescription, setVideoDescription] = useState('');
-    const [videoFile, setVideoFile] = useState('');
-    const [videoLength, setVideoLength] = useState('');
-    const [courseID, setCourseID] = useState('');
+import {updateDoc, doc, getDoc} from 'firebase/firestore'
+
+
+const EditVideo = () => {
+
+  const {id} = useParams()
  
-    const [loader, setLoader] = useState(false);
+  const [instructor, setInstructor] = useState('');
+  const [thumbnailImage, setThumbailImage] = useState('');
+  const [title, setTitle] = useState('');
+  const [transcript, setTranscript] = useState('');
+  const [videoDescription, setVideoDescription] = useState('');
+  const [videoFile, setVideoFile] = useState('');
+  const [videoLength, setVideoLength] = useState('');
+  const [courseID, setCourseID] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(e);
-        setLoader(true)
-      
-        await addDoc(collection(db, 'videos'), {
-            instructor: instructor,
-            thumbnailImage: thumbnailImage,
-            title: title,
-            transcript: transcript, 
-            videoDescription: videoDescription,
-            videoFile: videoFile,
-            videoLength: videoLength,
-            courseID: courseID,
-        })
-        .then(() => {
-            alert('Course has been submitted')
-            setLoader(false);
-        })
-        .catch((error) => {
-            alert(error.message);
-            setLoader(false);
-         }); 
 
-     setInstructor("");
-     setThumbailImage("");
-     setTitle("");
-     setTranscript(""); 
-     setVideoDescription("");
-     setVideoFile("");
-     setVideoLength("");    
-     setCourseID("");                
-    };
-         return (
-            <>
-                <Form onSubmit={handleSubmit}>
-                    <fieldset>
-                    <h4 className="mt-4">Add New Video</h4>
+  const getVids = async () => {
+  const vidRef = doc(db, 'videos', id)
+  try {
+    const docSnap = await getDoc(vidRef);
+    console.log(docSnap.data());
+    if(docSnap.exists()) {
+      setInstructor(docSnap.data().instructor)
+      setThumbailImage(docSnap.data().thumbnailImage)
+      setTitle(docSnap.data().title)
+      setTranscript(docSnap.data().transcript)
+      setVideoDescription(docSnap.data().videoDescription)
+      setVideoFile(docSnap.data().videoFile)
+      setVideoLength(docSnap.data().videoLength)
+      setCourseID(docSnap.data().courseID)
+    }else {
+      console.log("Document does not exist")
+    }
+  }catch(error) {
+      console.log(error)
+    }
+  }
+
+    useEffect (() =>{
+      getVids()
+    },[]);
+  
+
+  function handleUpdate(e){
+    e.preventDefault()
+
+    const docRef = doc(db, 'videos', id)
+    updateDoc(docRef,{
+      instructor,
+      thumbnailImage,
+      title,
+      transcript,
+      videoDescription,
+      videoFile,
+      videoLength,
+      courseID
+    }).then(response =>{
+      alert("updated")
+    }).catch(error =>
+      console.log("you have and issue")
+    )
+  }
+
+
+  return (
+        <main className="mt-5">
+                      <Form onSubmit={handleUpdate}>
+                          <fieldset>
+                          <h3 className="mt-4">Edit Video</h3>
                         <Form.Group>
                             <Form.Label className="mt-3">Title</Form.Label>
                             <Form.Control 
@@ -110,25 +130,18 @@ const AddVideo = () => {
                             <Form.Label className="mt-3">Course</Form.Label>
                             <Form.Control 
                             type="textarea" 
-                            value={transcript}
+                            value={courseID}
                             onChange={(e) => setCourseID(e.target.value)
                             }
                             />
-                        </Form.Group>
-                        {/* <Form.Select className="mt-3 mb-3" aria-label="select a course">
-                          <option>Choose a Course</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </Form.Select> */}
-                        <Button variant="dark" style={{width:"20%", color:"#A68863"}} className="mt-4" type="submit">   
-                            Submit
-                         </Button>     
-                    </fieldset>   
-                    </Form>   
-             </>
-        );
-    }
-   
-   
-   export default AddVideo;
+                        </Form.Group>                
+                              <Button variant="dark" style={{width:"20%", color:"#A68863"}} className="mt-5" type="submit">   
+                    Submit
+                </Button>    
+                              </fieldset>   
+                        </Form>  
+         </main>
+  )
+}
+
+export default EditVideo;

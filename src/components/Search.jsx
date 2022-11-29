@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSearchParams } from "react-router-dom";
+import {Form} from 'react-bootstrap';
 
 
 const Search = () => {
@@ -17,7 +18,16 @@ const Search = () => {
 
     return (
       <>
-      <input type="search" value="Search" />
+      <Form style={{width:'75%'}}>
+            <fieldset>
+                <Form.Group>
+                    <Form.Control
+                     type="search"
+                     placeholder="Search"
+                     />
+                </Form.Group>
+              </fieldset>
+        </Form>
       </>
     );
   }

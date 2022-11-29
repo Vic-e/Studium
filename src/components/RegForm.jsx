@@ -28,45 +28,42 @@ const RegForm = () => {
 
 
   return (
-    <main>
+    <main className="mt-5" style={{width:"400px"}}>
         <h2>Register</h2>
         {error ? <p>{error}</p> : null}
-        <Form onSubmit={handleSubmit}>
+        <Form className="mt-3 mb-3" onSubmit={handleSubmit}>
             <fieldset>
             <Form.Group>
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label className="mt-3">Username</Form.Label>
                     <Form.Control 
                     controlId="username"
                     type="username"
-                     placeholder="Username"
                      onChange={(e) => setUsername(e.target.value)} />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="mt-3">Email</Form.Label>
                     <Form.Control 
                     controlId="email"
                     type="email"
-                     placeholder="Email"
                      onChange={(e) => setEmail(e.target.value)} />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="mt-3">Password</Form.Label>
                     <Form.Control 
                     controlId="password"
                     type="password" 
-                    placeholder="Password" 
                     onChange={(e) => setPassword(e.target.value)}/>
                 </Form.Group>      
            </fieldset> 
-           <Button type="submit">   
+           <Button variant="dark" style={{width:"100%", color:"#A68863"}} className="mt-4" type="submit">   
                 Register
-            </Button>   
+                </Button>   
         </Form>
-        <h4>Already a member? Sign-in{" "} 
-        <Link to="/login">
+        <h6>Already a member? {" "} <Link to="/login">Sign-in
+        
                  here
                  </Link>.
-        </h4>
+        </h6>
     </main>
   );
 }

@@ -37,7 +37,7 @@ const MyCourses = (item) => {
     <>
    <Row>
          {courses.map((course, id) => (
-          <Col xs={6} key={id}>
+          <Col xs={6} key={id} style={{width: '300px', marginRight: "70px"}} >
               <h4 style={{textAlign: 'right'}} onClick={()=> deleteUrCourse(course.id)}><BsFillPatchPlusFill/></h4>
               <Image style={{width: '300px'}} src="https://assets.weforum.org/article/image/0R7BdnZl_gyeWOKsudAVmI7gNR673V4BIxQM6gwT-FY.png" />
               <h3><Link to={`/courses/${course.id}`}>{course.name}</Link></h3>

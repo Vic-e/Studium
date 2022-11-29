@@ -10,15 +10,15 @@ const Sidebar = () => {
 
     return (
       <div>
-        <Button onClick={handleShow}>
+        <Button style={{margin: '0px', backgroundColor:"#e1c699"}} onClick={handleShow}>
         &#xF479;
         </Button>
-
-        <Offcanvas style={{background: '#0F0C0E'}} show={show} onHide={handleClose}>
+        
+        <Offcanvas style={{background: '#0F0C0E',  lineHeight: '50px', fontSize: '20px', paddingLeft: '40px'}} show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Categories</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body className="mt-4">
+        <h4>Categories</h4>
           <Nav className="flex-column">
             <Nav.Link>
               <Link to="courses">

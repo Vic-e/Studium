@@ -1,37 +1,33 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {CourseContext} from '../App'
-import { Row, Col, Badge} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Row, Col, Image} from 'react-bootstrap';
+import { BsPatchPlus, BsFillPatchPlusFill } from "react-icons/bs";
+import {Link, Outlet} from 'react-router-dom';
 import {UserAuth} from '../context/AuthContext';  
 import {db} from './firebase';
-import OneCourse from './OneCourse'
+import {query, collection, onSnapshot, arrayUnion, doc, updateDoc} from 'firebase/firestore'
 
 
-const Courses = () => {
-  const {courses, setCourses} = useContext(CourseContext);
+const Courses = ( ) => {
+    const {courses, setCourses} = useContext(CourseContext);
 
-  const xxx = () =>{
-    
-  }
+    const [choose, setChoose] = useState(false);
+    const [fave, setFave] = useState(false);
+    const { user } = UserAuth();
+
 
 return (
-    <main>
+    <main className="mt-5">
     <h2>Courses</h2>
-    <Row>
-      <Col>
-     <h3> <Badge>All Courses</Badge></h3>
-     <h3> <Badge>Business</Badge></h3>
-     <h3> <Badge>Gaming</Badge></h3>
-     <h3> <Badge>Film</Badge></h3>
-      </Col>
-    </Row>
       <Row>
-        {courses.map((course, id) =>(
-          <Col>
-            <OneCourse key={id} course={course} />
-          </Col>
+        {courses.map((course) =>(
+        <Col>
+        <Image style={{width: '300px'}} src="course.courseImage" />
+        <h3><Link to={`${course.id}`}>{course.courseName}</Link></h3>
+        <p>{course.courseDescription}</p>
+        </Col>
         ))}
-        </Row>
+     </Row>
     </main>
    );
 };
