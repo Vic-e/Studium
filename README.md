@@ -7,4 +7,4 @@ Firebase<br>
 React Router<br>
 React Icons<br>
 
-This is a video web application where users can sign-in to learn about new media and technology. 
+This is a video web application where users must login to learn from industry experts.
