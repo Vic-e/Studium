@@ -22,7 +22,7 @@ return (
       <Row>
         {courses.map((course) =>(
         <Col>
-        <Image style={{width: '300px'}} src="course.courseImage" />
+        <Image style={{width: '400px'}} src="https://res.cloudinary.com/black-web-fest/image/upload/v1669656709/Studium/studium-student-learning-online_kehpud.jpg" />
         <h3><Link to={`${course.id}`}>{course.courseName}</Link></h3>
         <p>{course.courseDescription}</p>
         </Col>

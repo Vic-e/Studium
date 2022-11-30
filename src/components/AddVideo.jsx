@@ -110,7 +110,7 @@ const AddVideo = () => {
                             <Form.Label className="mt-3">Course</Form.Label>
                             <Form.Control 
                             type="textarea" 
-                            value={transcript}
+                            value={courseID}
                             onChange={(e) => setCourseID(e.target.value)
                             }
                             />
